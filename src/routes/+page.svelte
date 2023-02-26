@@ -27,16 +27,11 @@
 </script>
 
 <svelte:head>
-	<title>Birthday Buddy</title>
-	<meta name="description" content="Find out who you share you birthday with!!!" />
 </svelte:head>
 
 <div class="container mx-auto max-w-3xl p-10 space-y-4 text-center font-light">
 	<h1 class="text-4xl lg:text-6xl font-bold">BirthdayBuddy</h1>
 	<p class="p-2">Find out who you share your birthday with!!!</p>
-
-	<!-- create a input for a date picker and call an onchanged -->
-	<!-- // set the default value as today -->
 	<input
 		class="input input-bordered input-primary w-full"
 		type="date"
