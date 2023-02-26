@@ -48,7 +48,7 @@
 </script>
 
 <div class="container mx-auto max-w-3xl p-10 space-y-4 text-center font-mono">
-	<h1 class="text-5xl lg:text-6xl font-bold">BirthdayBuddy</h1>
+	<h1 class="text-5xl mx-auto lg:text-6xl font-bold">Birthday Buddy</h1>
 	<p class="p-2">Find out who you share your birthday with!!!</p>
 	<input
 		class="input input-bordered input-primary w-full"
