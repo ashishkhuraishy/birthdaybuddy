@@ -1,8 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { quintIn } from'svelte/easing';
 	import data from '../data.json';
-	import { flip } from 'svelte/animate';
 
 	var months = [
 		'january',
