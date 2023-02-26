@@ -1,5 +1,8 @@
 <script>
+	import { fade } from 'svelte/transition';
+	import { quintIn } from'svelte/easing';
 	import data from '../data.json';
+	import { flip } from 'svelte/animate';
 
 	var months = [
 		'january',
@@ -58,7 +61,7 @@
 	/>
 
 	{#each birthdayInfo as meta}
-		<div class="card md:card-side bg-base-100 shadow-xl">
+		<div class="card md:card-side bg-base-100 shadow-xl" in:fade={{duration: 500}} id="{meta.name}">
 			<img
 				class="object-cover w-full rounded-t-lg h-50 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
 				src={meta.image}
