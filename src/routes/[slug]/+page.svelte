@@ -1,40 +1,20 @@
 <script>
+	import { goto } from '$app/navigation';
 	import { fade } from 'svelte/transition';
-	import data from '../data.json';
+	import { dateToString, stringToDate } from '../../utils/date';
 
-	var months = [
-		'january',
-		'february',
-		'march',
-		'april',
-		'may',
-		'june',
-		'july',
-		'august',
-		'september',
-		'october',
-		'november',
-		'december'
-	];
-
-	// set default date as today
-	var today = new Date();
-	var month = today.getMonth();
-	var day = today.getDate();
-	var dateToLoad = `${months[month]}-${day}`;
-
-	// @ts-ignore
-	var birthdayInfo = data[dateToLoad];
-
+	export let data;
+	$ : ({info} = data)
+	var date = stringToDate(data.date);
+	
 	// @ts-ignore
 	function onDateChange(event) {
-		var date = event?.target?.value;
-		if (date) {
-			var month = months[new Date(date).getMonth()];
-			var day = new Date(date).getDate();
+		var dateVal = event?.target?.value;
+		var date = new Date(dateVal);
 
-			//@ts-ignore
-			birthdayInfo = data[`${month}-${day}`];
+		if (date) {
+			goto('/' + dateToString(date));
+			return
 		}
 	}
 
@@ -54,11 +34,11 @@
 	<input
 		class="input input-bordered input-primary w-full"
 		type="date"
-		value={today.toISOString().substring(0, 10)}
+		value={date.toISOString().substring(0, 10)}
 		on:change={onDateChange}
 	/>
 
-	{#each birthdayInfo as meta}
+	{#each info as meta}
 		<div class="card md:card-side bg-base-100 shadow-xl" in:fade={{duration: 500}} id="{meta.name}">
 			<img
 				class="object-cover w-full rounded-t-lg h-50 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
